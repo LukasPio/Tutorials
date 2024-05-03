@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+
+      .container {
+        background-color: rgb(36, 34, 34);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .to-type {
+        font-size: 70px;
+      }
+
+      h1 {
+        font-size: 85px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Type effect with js:</h1>
+      <p class="to-type"></p>
+    </div>
+
+    <script defer>
+      const paragraph = document.querySelector(".to-type");
+      const textToWrite = "Hello World!";
+      const delayInSeconds = 0.2;
+
+      let index = 0;
+
+      let intervalId = setInterval(() => {
+        paragraph.textContent += textToWrite[index];
+        index++;
+        if (index >= textToWrite.length) clearInterval(intervalId);
+      }, 1000 * delayInSeconds);
+
+    </script>
+  </body>
+</html>
